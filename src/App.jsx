@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import { ClipLoader } from "react-spinners";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [advice, setAdvice] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  async function fetchAdvice() {
+    setLoading(true);
+    try {
+      const response = await fetch("https://api.adviceslip.com/advice");
+      const data = await response.json();
+      setAdvice([data]);
+    } catch (error) {
+      console.error("error occured fetching the advice:", error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchAdvice();
+  }, []);
+
+  function handleNewAdvice() {
+    fetchAdvice();
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <div className="parent">
+      <h2>Advice Slip Generator</h2>
+      <p>
+        <em>Get some Advice to keep you going and motivate you!</em>
       </p>
-    </>
-  )
-}
+      <div>
+        {!loading ? (
+          advice.map((singleAdvice) => (
+            <p key={singleAdvice.slip.id} className="singleAdvice">
+              {singleAdvice.slip.advice}
+            </p>
+          ))
+        ) : (
+          <div>
+            <ClipLoader size={20} color="red" />
+          </div>
+        )}
+      </div>
+      <button onClick={handleNewAdvice} disabled={loading}>
+        {loading ? "Loading....." : "Get New Advice"}
+      </button>
+    </div>
+  );
+};
 
-export default App
+export default App;
