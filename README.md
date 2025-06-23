@@ -1,12 +1,62 @@
-# React + Vite
+# 📘 README – Advice Slip Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📝 Description
 
-Currently, two official plugins are available:
+**Advice Slip Generator** is a simple React application that fetches motivational advice from the [Advice Slip API](https://api.adviceslip.com/) and displays it dynamically to users. It’s lightweight, responsive, and built with modern React features like `useState`, `useEffect`, and conditional rendering. Users can fetch a new piece of advice by clicking a button, with loading indicators ensuring a smooth user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+Connect on [Live Demo](https://advice-app-ecru-kappa.vercel.app/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💻 Features
+
+- 🔄 Fetch random advice from the Advice Slip API
+- 💬 Display motivational quotes in real-time
+- ⏳ Loading spinner using `react-spinners`
+- ⚡ Button disables while fetching data
+- 🔁 Refresh advice on demand
+
+## 🛠️ Built With
+
+- **React**
+- **JavaScript (ES6+)**
+- **React Hooks** (`useState`, `useEffect`)
+- **React Spinners** for the loading indicator
+- **CSS**
+
+## 📦 Installation & Setup
+
+1. **Clone the repo:**
+
+   ```bash
+   git clone https://github.com/yourusername/advice-slip-generator.git
+   cd advice-slip-generator
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+
+   ```bash
+   npm start
+   ```
+
+4. Open your browser at `http://localhost:3000`
+
+## 🧠 Learning Outcomes
+
+- Working with public APIs in React
+- Managing component state
+- Handling asynchronous operations
+- Improving UX with loaders
+- Clean component structure and modular code
+
+## 🧑‍💻 Author
+
+**Anthony**  
+Connect on [LinkedIn](https://www.linkedin.com/in/anthony-muuo/)  
+GitHub: [@anthonymusembi](https://github.com/amuuo-dev)
